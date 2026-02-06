@@ -1,294 +1,251 @@
-<!DOCTYPE html>
-<html lang="da">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Læge Christa E. Blaasvær</title>
 
-    <!-- GOOGLE FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: #f8f7f4;
-            color: #2a2a2a;
-            scroll-behavior: smooth;
+    <!-- DNS Prefetch and Preconnect for external services -->
+    <link rel="dns-prefetch" href="https://assets.emergent.sh" />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://assets.emergent.sh" crossorigin />
+
+    <!-- Primary Meta Tags -->
+    <title>Emergent</title>
+    <meta name="title" content="Emergent - AI-Powered App Development | No Code Required" />
+    <meta
+      name="description"
+      content="Transform ideas into production-ready applications with AI. Build web apps, mobile platforms, and custom software through simple conversation, no coding required."
+    />
+    <meta
+      name="keywords"
+      content="no-code development, AI app builder, software development, web app creator, mobile app development, AI coding assistant"
+    />
+    <meta name="author" content="Emergent" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://emergent.sh/" />
+    <meta property="og:title" content="Emergent - AI-Powered App Development | No Code Required" />
+    <meta
+      property="og:description"
+      content="From idea to app in minutes. AI-powered development platform for creators, entrepreneurs, and developers."
+    />
+    <meta property="og:image" content="https://app.emergent.sh/logo.png" />
+    <meta name="facebook-domain-verification" content="v1096rpo7sp3nzp96d9ik3cvgwzodd" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://emergent.sh/" />
+    <meta property="twitter:title" content="Emergent - AI-Powered App Development | No Code Required" />
+    <meta
+      property="twitter:description"
+      content="Build real products with Emergent's vibe-coding platform. Emergent AI creates production-ready applications from natural language—no developers required."
+    />
+    <meta property="twitter:image" content="https://app.emergent.sh/twitter-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/assets/site-B8Ol4jaE.webmanifest" />
+
+    <!-- Fonts and Styles - Preconnect for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://emergent.sh/" />
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NCCB99P9");
+    </script>
+    <!-- Conditionally load Rewardful for affiliate users only -->
+    <script>
+      (function () {
+        // Helper to get cookie by name
+        function getCookieValue(name) {
+          var match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+          return match ? match[2] : null;
         }
 
-        header {
-            background: white;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            border-bottom: 1px solid #eceae4;
+        // Check if user is from affiliate link
+        function isAffiliateUser() {
+          var urlParams = new URLSearchParams(window.location.search);
+          var affiliateParams = ["via", "referral", "ref", "affiliate", "aff", "affid"];
+
+          // Check URL parameters
+          for (var i = 0; i < affiliateParams.length; i++) {
+            if (urlParams.get(affiliateParams[i])) {
+              // console.log('[Rewardful] ✅ Affiliate param found:', affiliateParams[i]);
+              return true;
+            }
+          }
+
+          // Check if rewardful cookie already exists (returning affiliate user)
+          // Use proper cookie parsing to avoid false positives from other cookies containing the string
+          var rewardfulReferral = getCookieValue("rewardful.referral");
+          var rewardfulAffiliate = getCookieValue("rewardful_affiliate");
+          var viaCookie = getCookieValue("via");
+
+          if (rewardfulReferral || rewardfulAffiliate || viaCookie) {
+            // console.log('[Rewardful] ✅ Returning affiliate user (cookie found)');
+            return true;
+          }
+
+          // console.log('[Rewardful] ⛔ Organic user - skipping Rewardful');
+          return false;
         }
 
-        .nav {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        // Only load Rewardful for affiliate users
+        if (isAffiliateUser()) {
+          // console.log('[Rewardful] 🎯 Loading Rewardful script');
+
+          // Initialize queue
+          (function (w, r) {
+            w._rwq = r;
+            w[r] =
+              w[r] ||
+              function () {
+                (w[r].q = w[r].q || []).push(arguments);
+              };
+          })(window, "rewardful");
+
+          // Load script
+          var script = document.createElement("script");
+          script.src = "https://r.wdfl.co/rw.js";
+          script.async = true;
+          script.setAttribute("data-rewardful", "981168");
+          document.head.appendChild(script);
+        }
+      })();
+    </script>
+    <!-- Add Google Identity Services script -->
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <!-- Paddle.js for checkout overlay (initialized in paddleService.ts with env token) -->
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js" defer></script>
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "1326372205570201");
+      fbq("track", "PageView");
+    </script>
+    <!-- End Meta Pixel Code -->
+    <!-- Conditionally load PartnerStack for partner users only -->
+    <script>
+      (function () {
+        // Helper to get cookie by name (reuse pattern from Rewardful)
+        function getCookieValue(name) {
+          var match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+          return match ? match[2] : null;
         }
 
-        .nav a {
-            margin: 0 12px;
-            color: #2a2a2a;
-            text-decoration: none;
-            font-weight: 500;
+        // Check if user is from partner link
+        function isPartnerUser() {
+          var urlParams = new URLSearchParams(window.location.search);
+
+          if (urlParams.get("ps_partner_key")) {
+            return true;
+          }
+          // Check if ps_partner_key cookie exists (returning partner user)
+          if (getCookieValue("ps_partner_key")) {
+            return true;
+          }
+          return false;
         }
 
-        .call-btn {
-            background: #3e5b44;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
+        // Only load PartnerStack for partner users
+        if (isPartnerUser()) {
+          var gs = document.createElement("script");
+          gs.src = "https://js.partnerstack.com/v1/";
+          gs.type = "text/javascript";
+          gs.async = true;
+          gs.onload = gs.onreadystatechange = function () {
+            var rs = this.readyState;
+            if (rs && rs != "complete" && rs != "loaded") return;
+            try {
+              growsumo._initialize("pk_X807fuc0nfNQX8tFKDm3PatW0ZZNyDUd", [
+                "emergentlabsinc.partnerlinks.io",
+                "get.emergent.sh",
+                "trialcoig7l2s8gsenk14emergent.partnerlinks.io",
+              ]);
+              if (typeof growsumoInit === "function") {
+                growsumoInit();
+              }
+            } catch (e) {}
+          };
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(gs, s);
         }
-
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #e9ece7, #f8f7f4);
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 52px;
-            margin-bottom: 10px;
-            color: #2e4635;
-        }
-
-        .hero p {
-            font-size: 19px;
-            color: #4a4a4a;
-            margin-top: 10px;
-            margin-bottom: 45px;
-        }
-
-        .hero-buttons a {
-            margin: 10px;
-            padding: 14px 26px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        .green-btn {
-            background: #3e5b44;
-            color: white;
-        }
-
-        .white-btn {
-            border: 2px solid #dcdcd7;
-            background: white;
-            color: #2a2a2a;
-        }
-
-        section {
-            padding: 80px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            text-align: center;
-            margin-bottom: 15px;
-            color: #2e4635;
-        }
-
-        .section-text {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-            color: #3f3f3f;
-        }
-
-        .cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 18px;
-            padding: 35px;
-            width: 285px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-        }
-
-        .contact-box {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .contact-left {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            width: 350px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-        }
-
-        .contact-left p {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-
-        .map iframe {
-            border: 0;
-            width: 450px;
-            height: 350px;
-            border-radius: 12px;
-        }
-
-        footer {
-            background: #1d3226;
-            color: white;
-            padding: 40px;
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        @media(max-width: 800px) {
-            .map iframe { width: 100%; height: 300px; }
-            .contact-box { flex-direction: column; align-items: center; }
-            .card { width: 100%; }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <div class="nav">
-        <div class="logo"><strong>Læge Christa E. Blaasvær</strong></div>
-        <nav>
-            <a href="#home">Hjem</a>
-            <a href="#om">Om Klinikken</a>
-            <a href="#kontakt">Kontakt</a>
-            <a href="#patientinfo">Patientinfo</a>
-            <a href="#anmeldelser">Anmeldelser</a>
-        </nav>
-        <a href="tel:+4598121999" class="call-btn">Ring nu</a>
-    </div>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="home">
-    <div class="rating">⭐⭐⭐⭐⭐ 5.0 bedømmelse</div>
-
-    <h1>Tryg og Professionel<br>Lægehjælp i Aalborg</h1>
-
-    <p>Velkommen til Læge Christa Ellefsen Blaasvær. Vi tilbyder personlig og omsorgsfuld 
-       lægebehandling med fokus på din tryghed og sundhed.</p>
-
-    <div class="hero-buttons">
-        <a href="#kontakt" class="green-btn">Kontakt klinikken</a>
-        <a href="#kontakt" class="white-btn">Find os på kort</a>
-    </div>
-</section>
-
-<!-- OM -->
-<section id="om">
-    <h2>Om Klinikken</h2>
-    <p class="section-text">
-        Læge Christa Ellefsen Blaasvær driver en patientcentreret praksis i hjertet af Aalborg,
-        hvor faglighed og menneskelig omsorg går hånd i hånd.
-    </p>
-
-    <div class="cards">
-        <div class="card">
-            <h3>Erfaren Læge</h3>
-            <p>Med mange års erfaring tilbyder vi kvalificeret og professionel lægebehandling.</p>
-        </div>
-        <div class="card">
-            <h3>Personlig Omsorg</h3>
-            <p>Vi sætter patienten i centrum og tager os tid til at lytte og forstå.</p>
-        </div>
-        <div class="card">
-            <h3>Tillid & Tryghed</h3>
-            <p>Et trygt miljø hvor du kan føle dig sikker og godt tilpas.</p>
-        </div>
-    </div>
-</section>
-
-<!-- KONTAKT -->
-<section id="kontakt">
-    <h2>Kontakt Os</h2>
-    <p class="section-text">Vi er altid klar til at hjælpe dig</p>
-
-    <div class="contact-box">
-        <div class="contact-left">
-            <h3>Kontaktoplysninger</h3>
-            <p><strong>Telefon:</strong><br>+45 98 12 19 99</p>
-            <p><strong>Adresse:</strong><br>Hasserishøj 4<br>9000 Aalborg</p>
-            <a href="tel:+4598121999" class="green-btn" style="display:inline-block;margin-top:15px;">
-                Ring til os nu
-            </a>
-        </div>
-
-        <div class="map">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2242.4456948140907!2d9.908708!3d57.033658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464930e13952d21d%3A0xf218820125c2fa9e!2sHasserish%C3%B8j%204%2C%209000%20Aalborg!5e0!3m2!1sen!2sdk!4v1707060000000"
-                allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
-</section>
-
-<!-- PATIENTINFO -->
-<section id="patientinfo">
-    <h2>Patientinformation</h2>
-    <p class="section-text">Praktiske oplysninger for dig som patient</p>
-
-    <div class="cards">
-        <div class="card">
-            <h3>Bestil tid</h3>
-            <p>Ring til klinikken for at bestille en tid. Vi bestræber os på at finde en tid, der passer dig.</p>
-        </div>
-        <div class="card">
-            <h3>Akut hjælp</h3>
-            <p>Kontakt lægevagten ved akut sygdom uden for åbningstid eller ring 112 ved livstruende situationer.</p>
-        </div>
-        <div class="card">
-            <h3>Tavshedspligt</h3>
-            <p>Alle oplysninger behandles fortroligt og efter gældende patientrettigheder.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ANMELDELSER -->
-<section id="anmeldelser">
-    <h2>Anmeldelser</h2>
-    <p class="section-text">Hvad vores patienter siger</p>
-
-    <div class="card" style="margin:auto;max-width:500px;">
-        <h3>⭐⭐⭐⭐⭐</h3>
-        <h1 style="font-size:42px;margin:0;">5.0</h1>
-        <p>Baseret på patientanmeldelser</p>
-        <hr>
-        <p><em>"Altid lækker the på kanden, og der serveres chokolade og god underholdning :)"</em><br>— Tilfreds patient</p>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <h3>Læge Christa Ellefsen Blaasvær</h3>
-    <p>Hasserishøj 4, 9000 Aalborg</p>
-    <p>Telefon: +45 98 12 19 99</p>
-</footer>
-
-</body>
+      })();
+    </script>
+    <!-- End PartnerStack -->
+    <script type="module" crossorigin src="/main-Bn0CFPGP.js"></script>
+    <link rel="modulepreload" crossorigin href="/chunks/chunk-CMjeC7eR.js">
+    <link rel="modulepreload" crossorigin href="/chunks/chunk-BPB3WYz4.js">
+    <link rel="modulepreload" crossorigin href="/chunks/chunk-vO_5M3iW.js">
+    <link rel="modulepreload" crossorigin href="/chunks/chunk-JLrZeVHh.js">
+    <link rel="modulepreload" crossorigin href="/chunks/chunk-Cszvwt2r.js">
+    <link rel="modulepreload" crossorigin href="/chunks/chunk-DVijDBuK.js">
+    <link rel="modulepreload" crossorigin href="/chunks/chunk-DHmc-0SL.js">
+    <link rel="modulepreload" crossorigin href="/chunks/chunk-CXnPTvSO.js">
+    <link rel="modulepreload" crossorigin href="/chunks/chunk-CgwgwzaB.js">
+    <link rel="modulepreload" crossorigin href="/chunks/chunk-DD0HJyST.js">
+    <link rel="stylesheet" crossorigin href="/assets/monaco-editor-BetWCQm5.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-myYTXtVm.css">
+  </head>
+  <body>
+    <!-- Meta Pixel Code (noscript) -->
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1326372205570201&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code (noscript) -->
+    <div id="root"></div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NCCB99P9"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c9c013dbc0d4935',t:'MTc3MDM5NTE0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
